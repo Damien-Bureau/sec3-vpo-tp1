@@ -11,10 +11,10 @@ def histo(img_gray, plot_color=None) -> None:
 
     # Plot histogram
     if plot_color:
-        plt.hist(img_gray.ravel(), 256, [0,250], color=plot_color)
+        plt.hist(img_gray.ravel(), 256, [0,256], color=plot_color)
         # plt.plot(hist, color=plot_color)
     else:
-        plt.hist(img_gray.ravel(), 256, [0,250])
+        plt.hist(img_gray.ravel(), 256, [0,256])
         # plt.plot(hist)
     plt.xlabel("Gray levels [0-255]")
     plt.ylabel("Number of pixels")
