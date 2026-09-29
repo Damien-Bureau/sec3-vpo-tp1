@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 
-def histo(img_gray) -> None:
+def histo(img_gray, plot_color=None) -> None:
     # Compute histogram
     hist = cv2.calcHist(images=[img_gray],
                         channels=[0],
@@ -10,8 +10,12 @@ def histo(img_gray) -> None:
                         ranges=[0,256])
 
     # Plot histogram
-    plt.hist(img_gray.ravel(), 256, [0,256])
-    # plt.plot(hist)
+    if plot_color:
+        plt.hist(img_gray.ravel(), 256, [0,250], color=plot_color)
+        # plt.plot(hist, color=plot_color)
+    else:
+        plt.hist(img_gray.ravel(), 256, [0,250])
+        # plt.plot(hist)
     plt.xlabel("Gray levels [0-255]")
     plt.ylabel("Number of pixels")
 
